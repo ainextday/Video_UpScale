@@ -29,7 +29,8 @@ import shutil
 import numpy as np
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
-torch.cuda.set_per_process_memory_fraction(0.5, device=0)
+if torch.cuda.is_available():
+    torch.cuda.set_per_process_memory_fraction(0.5, device=0)
 
 def set_realesrgan(tile_size=400, upscale=2):
     from basicsr.archs.rrdbnet_arch import RRDBNet
