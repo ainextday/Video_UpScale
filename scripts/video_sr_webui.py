@@ -537,22 +537,6 @@ def create_video_sr_interface():
     return demo
 
 
-
 if __name__ == "__main__":
-    import webbrowser
-
     demo = create_video_sr_interface()
-
-    # เปิด browser พร้อมธีม dark โดยกำหนด URL
-    url = "http://127.0.0.1:7861/?__theme=dark"
-    webbrowser.open(url)
-
-    demo.launch(
-        server_name="127.0.0.1",
-        server_port=7861,
-        debug=True,
-        share=False,  # ปิด share หากไม่ต้องการออนไลน์
-        prevent_thread_lock=True  # ป้องกันไม่ให้บล็อค main thread เมื่อใช้ webbrowser
-    )
-
-
+    demo.launch(share=True, debug=True)
